@@ -178,8 +178,8 @@ const Booking: React.FC = () => {
                 <h2>Select Service & Date</h2>
                 
                 <div className="form-group">
-                  <label>
-                    <FiUser size={20} />
+                  <                  label>
+                    👤
                     Choose Service
                   </label>
                   <select
@@ -199,7 +199,7 @@ const Booking: React.FC = () => {
                 <div className="form-row">
                   <div className="form-group">
                     <label>
-                      <FiCalendar size={20} />
+                      📅
                       Preferred Date
                     </label>
                     <input
@@ -213,7 +213,7 @@ const Booking: React.FC = () => {
 
                   <div className="form-group">
                     <label>
-                      <FiClock size={20} />
+                      🕐
                       Preferred Time
                     </label>
                     <select
@@ -253,7 +253,7 @@ const Booking: React.FC = () => {
                 <div className="form-row">
                   <div className="form-group">
                     <label>
-                      <FiUser size={20} />
+                      👤
                       First Name
                     </label>
                     <input
@@ -267,7 +267,7 @@ const Booking: React.FC = () => {
 
                   <div className="form-group">
                     <label>
-                      <FiUser size={20} />
+                      👤
                       Last Name
                     </label>
                     <input
@@ -283,7 +283,7 @@ const Booking: React.FC = () => {
                 <div className="form-row">
                   <div className="form-group">
                     <label>
-                      <FiMail size={20} />
+                      ✉️
                       Email Address
                     </label>
                     <input
@@ -303,7 +303,7 @@ const Booking: React.FC = () => {
 
                   <div className="form-group">
                     <label>
-                      <FiPhone size={20} />
+                      📞
                       Phone Number
                     </label>
                     <input
@@ -318,7 +318,7 @@ const Booking: React.FC = () => {
 
                 <div className="form-group">
                   <label>
-                    <FiMessageSquare size={20} />
+                    💬
                     Additional Message (Optional)
                   </label>
                   <textarea
