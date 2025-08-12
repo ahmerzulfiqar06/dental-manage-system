@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FiPhone, FiMail, FiMapPin, FiClock } from 'react-icons/fi';
+
 import './Footer.css';
 
 const Footer: React.FC = () => {
@@ -157,19 +157,19 @@ const Footer: React.FC = () => {
               <h3>Contact Info</h3>
               <div className="contact-info">
                 <div className="contact-item">
-                  <FiMapPin size={18} />
+                  <span className="contact-icon">📍</span>
                   <span>123 Dental Street, Health City, HC 12345</span>
                 </div>
                 <div className="contact-item">
-                  <FiPhone size={18} />
+                  <span className="contact-icon">📞</span>
                   <span>+1 (555) 123-4567</span>
                 </div>
                 <div className="contact-item">
-                  <FiMail size={18} />
+                  <span className="contact-icon">✉️</span>
                   <span>info@dentalcare.com</span>
                 </div>
                 <div className="contact-item">
-                  <FiClock size={18} />
+                  <span className="contact-icon">🕐</span>
                   <span>Mon-Fri: 8AM-6PM, Sat: 9AM-3PM</span>
                 </div>
               </div>
