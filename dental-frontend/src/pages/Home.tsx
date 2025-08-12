@@ -1,23 +1,23 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FiStar, FiShield, FiClock, FiHeart, FiAward, FiUsers } from 'react-icons/fi';
+// Icons replaced with emojis for TypeScript compatibility
 import './Home.css';
 
 const Home: React.FC = () => {
   const services = [
     {
-      icon: <FiShield size={32} />,
+      icon: '🛡️',
       title: 'Preventive Care',
       description: 'Regular checkups and cleanings to keep your teeth healthy and prevent dental problems.',
     },
     {
-      icon: <FiHeart size={32} />,
+      icon: '❤️',
       title: 'Cosmetic Dentistry',
       description: 'Transform your smile with veneers, whitening, and other cosmetic treatments.',
     },
     {
-      icon: <FiAward size={32} />,
+      icon: '🏆',
       title: 'Restorative Care',
       description: 'Repair damaged teeth with crowns, bridges, and advanced restoration techniques.',
     },
@@ -130,11 +130,11 @@ const Home: React.FC = () => {
                 transition={{ duration: 0.8, delay: 0.8 }}
               >
                 <div className="stat-item">
-                  <FiUsers size={24} />
+                  <span style={{ marginRight: 6 }}>👥</span>
                   <span>5000+ Happy Patients</span>
                 </div>
                 <div className="stat-item">
-                  <FiClock size={24} />
+                  <span style={{ marginRight: 6 }}>🕐</span>
                   <span>Same Day Appointments</span>
                 </div>
               </motion.div>
@@ -164,7 +164,7 @@ const Home: React.FC = () => {
                       ease: "easeInOut"
                     }}
                   >
-                    <FiStar size={20} />
+                    <span style={{ marginRight: 6 }}>⭐</span>
                     <span>5.0 Rating</span>
                   </motion.div>
                 </div>
@@ -200,7 +200,7 @@ const Home: React.FC = () => {
                 whileHover={{ y: -10 }}
               >
                 <div className="service-icon">
-                  {service.icon}
+                  <span style={{ fontSize: '1.5rem' }}>{service.icon}</span>
                 </div>
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
@@ -268,7 +268,7 @@ const Home: React.FC = () => {
               >
                 <div className="testimonial-rating">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <FiStar key={i} size={16} fill="currentColor" />
+                    <span key={i}>⭐</span>
                   ))}
                 </div>
                 <p className="testimonial-text">"{testimonial.text}"</p>

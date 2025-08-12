@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
-import { FiPhone, FiMail, FiMapPin, FiClock, FiSend, FiMessageCircle } from 'react-icons/fi';
+// Icons replaced with emojis for TypeScript compatibility
 import './Contact.css';
 
 interface ContactForm {
@@ -24,25 +24,25 @@ const Contact: React.FC = () => {
 
   const contactInfo = [
     {
-      icon: <FiPhone size={24} />,
+      icon: '📞',
       title: 'Phone',
       details: ['+1 (555) 123-4567', 'Emergency: +1 (555) 987-6543'],
       action: 'tel:+15551234567',
     },
     {
-      icon: <FiMail size={24} />,
+      icon: '✉️',
       title: 'Email',
       details: ['info@dentalcare.com', 'emergency@dentalcare.com'],
       action: 'mailto:info@dentalcare.com',
     },
     {
-      icon: <FiMapPin size={24} />,
+      icon: '📍',
       title: 'Address',
       details: ['123 Dental Street', 'Health City, HC 12345'],
       action: '#',
     },
     {
-      icon: <FiClock size={24} />,
+      icon: '🕐',
       title: 'Hours',
       details: ['Mon-Fri: 8:00 AM - 6:00 PM', 'Sat: 9:00 AM - 3:00 PM', 'Sun: Emergency Only'],
       action: '#',
@@ -119,7 +119,7 @@ const Contact: React.FC = () => {
               viewport={{ once: true }}
             >
               <div className="form-header">
-                <FiMessageCircle size={32} />
+                <span style={{ fontSize: '2rem' }}>💬</span>
                 <h2>Send us a Message</h2>
                 <p>We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
               </div>
@@ -202,7 +202,7 @@ const Contact: React.FC = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <FiSend size={20} />
+                  <span style={{ marginRight: 8 }}>📨</span>
                   Send Message
                 </motion.button>
               </form>
@@ -218,7 +218,7 @@ const Contact: React.FC = () => {
             >
               <h3>Find Us</h3>
               <div className="map-placeholder">
-                <FiMapPin size={48} />
+                <span style={{ fontSize: '2.5rem' }}>📍</span>
                 <p>Interactive Map</p>
                 <span>123 Dental Street, Health City, HC 12345</span>
               </div>
@@ -262,7 +262,7 @@ const Contact: React.FC = () => {
             <p>We provide 24/7 emergency dental care. Don't wait - call us immediately!</p>
             <div className="emergency-actions">
               <a href="tel:+15559876543" className="btn btn-accent emergency-btn">
-                <FiPhone size={20} />
+                <span style={{ marginRight: 8 }}>📞</span>
                 Emergency Hotline
               </a>
               <span className="emergency-number">+1 (555) 987-6543</span>

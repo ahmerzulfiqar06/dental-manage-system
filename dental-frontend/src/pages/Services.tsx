@@ -1,13 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FiShield, FiHeart, FiAward, FiStar, FiClock, FiDollarSign } from 'react-icons/fi';
+// Icons replaced with emojis for TypeScript compatibility
 import './Services.css';
 
 const Services: React.FC = () => {
   const services = [
     {
-      icon: <FiShield size={40} />,
+      icon: '🛡️',
       title: 'General Checkup',
       description: 'Comprehensive oral health examination and preventive care to maintain your dental wellness.',
       features: ['Oral examination', 'X-rays', 'Cleaning', 'Fluoride treatment'],
@@ -15,7 +15,7 @@ const Services: React.FC = () => {
       duration: '60 min',
     },
     {
-      icon: <FiHeart size={40} />,
+      icon: '❤️',
       title: 'Teeth Whitening',
       description: 'Professional whitening treatment to brighten your smile and boost your confidence.',
       features: ['Professional grade', 'Safe procedure', 'Immediate results', 'Long-lasting'],
@@ -23,7 +23,7 @@ const Services: React.FC = () => {
       duration: '90 min',
     },
     {
-      icon: <FiAward size={40} />,
+      icon: '🏆',
       title: 'Dental Implants',
       description: 'Permanent solution for missing teeth using state-of-the-art implant technology.',
       features: ['Titanium implants', 'Natural appearance', 'Permanent solution', 'Bone preservation'],
@@ -31,7 +31,7 @@ const Services: React.FC = () => {
       duration: '2-3 visits',
     },
     {
-      icon: <FiStar size={40} />,
+      icon: '⭐',
       title: 'Root Canal',
       description: 'Advanced endodontic treatment to save your natural tooth and eliminate pain.',
       features: ['Pain relief', 'Tooth preservation', 'Advanced technology', 'High success rate'],
@@ -39,7 +39,7 @@ const Services: React.FC = () => {
       duration: '90-120 min',
     },
     {
-      icon: <FiHeart size={40} />,
+      icon: '❤️',
       title: 'Crown & Bridge',
       description: 'Restore damaged teeth or replace missing ones with custom-made crowns and bridges.',
       features: ['Custom made', 'Natural appearance', 'Durable materials', 'Perfect fit'],
@@ -47,7 +47,7 @@ const Services: React.FC = () => {
       duration: '2 visits',
     },
     {
-      icon: <FiShield size={40} />,
+      icon: '🛡️',
       title: 'Emergency Care',
       description: '24/7 emergency dental services for urgent dental problems and pain relief.',
       features: ['24/7 availability', 'Immediate relief', 'Same day treatment', 'Pain management'],
@@ -94,7 +94,7 @@ const Services: React.FC = () => {
                 whileHover={{ y: -10 }}
               >
                 <div className="service-icon-large">
-                  {service.icon}
+                  <span style={{ fontSize: '2rem' }}>{service.icon}</span>
                 </div>
                 <h3>{service.title}</h3>
                 <p className="service-description">{service.description}</p>
@@ -107,11 +107,11 @@ const Services: React.FC = () => {
                 
                 <div className="service-meta">
                   <div className="service-price">
-                    <FiDollarSign size={16} />
+                    <span style={{ marginRight: 6 }}>💲</span>
                     <span>{service.price}</span>
                   </div>
                   <div className="service-duration">
-                    <FiClock size={16} />
+                    <span style={{ marginRight: 6 }}>🕐</span>
                     <span>{service.duration}</span>
                   </div>
                 </div>
@@ -142,22 +142,22 @@ const Services: React.FC = () => {
           <div className="benefits-grid">
             {[
               {
-                icon: <FiAward size={32} />,
+                icon: '🏆',
                 title: 'Expert Team',
                 description: 'Board-certified dentists with years of experience'
               },
               {
-                icon: <FiStar size={32} />,
+                icon: '⭐',
                 title: 'Latest Technology',
                 description: 'State-of-the-art equipment for precise treatment'
               },
               {
-                icon: <FiShield size={32} />,
+                icon: '🛡️',
                 title: 'Safety First',
                 description: 'Strict sterilization and safety protocols'
               },
               {
-                icon: <FiHeart size={32} />,
+                icon: '❤️',
                 title: 'Patient Comfort',
                 description: 'Comfortable environment with sedation options'
               }
@@ -171,7 +171,7 @@ const Services: React.FC = () => {
                 viewport={{ once: true }}
               >
                 <div className="benefit-icon">
-                  {benefit.icon}
+                  <span style={{ fontSize: '2rem' }}>{benefit.icon}</span>
                 </div>
                 <h3>{benefit.title}</h3>
                 <p>{benefit.description}</p>
