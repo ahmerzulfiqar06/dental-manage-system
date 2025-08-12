@@ -28,6 +28,7 @@ const Navbar: React.FC = () => {
     { name: 'Services', path: '/services' },
     { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },
+    { name: 'Dashboard', path: '/dashboard' },
   ];
 
   return (
@@ -122,6 +123,8 @@ const Navbar: React.FC = () => {
                 Book Appointment
               </Link>
             </motion.div>
+
+            <Link to="/login" className="nav-link" style={{ marginLeft: '.75rem' }}>Sign In</Link>
 
             {/* Mobile Menu Button */}
             <button
