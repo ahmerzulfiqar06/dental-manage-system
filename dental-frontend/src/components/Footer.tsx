@@ -2,14 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiPhone, FiMail, FiMapPin, FiClock, FiFacebook, FiTwitter, FiInstagram, FiLinkedin } from 'react-icons/fi';
-import { IconType } from 'react-icons';
 import './Footer.css';
-
-interface SocialLink {
-  icon: IconType;
-  url: string;
-  name: string;
-}
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -29,13 +22,6 @@ const Footer: React.FC = () => {
     'Dental Implants',
     'Root Canal',
     'Emergency Care',
-  ];
-
-  const socialLinks: SocialLink[] = [
-    { icon: FiFacebook, url: '#', name: 'Facebook' },
-    { icon: FiTwitter, url: '#', name: 'Twitter' },
-    { icon: FiInstagram, url: '#', name: 'Instagram' },
-    { icon: FiLinkedin, url: '#', name: 'LinkedIn' },
   ];
 
   return (
@@ -81,18 +67,42 @@ const Footer: React.FC = () => {
                 Your smile is our priority.
               </p>
               <div className="social-links">
-                {socialLinks.map((social, index) => (
-                  <motion.a
-                    key={index}
-                    href={social.url}
-                    className="social-link"
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    aria-label={social.name}
-                  >
-                    {React.createElement(social.icon, { size: 20 })}
-                  </motion.a>
-                ))}
+                <motion.a
+                  href="#"
+                  className="social-link"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  aria-label="Facebook"
+                >
+                  <FiFacebook size={20} />
+                </motion.a>
+                <motion.a
+                  href="#"
+                  className="social-link"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  aria-label="Twitter"
+                >
+                  <FiTwitter size={20} />
+                </motion.a>
+                <motion.a
+                  href="#"
+                  className="social-link"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  aria-label="Instagram"
+                >
+                  <FiInstagram size={20} />
+                </motion.a>
+                <motion.a
+                  href="#"
+                  className="social-link"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  aria-label="LinkedIn"
+                >
+                  <FiLinkedin size={20} />
+                </motion.a>
               </div>
             </motion.div>
 
