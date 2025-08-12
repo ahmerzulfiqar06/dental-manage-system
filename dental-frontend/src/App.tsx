@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import LoadingScreen from './components/LoadingScreen';
-import Navbar from './components/Navbar';
+import { LoadingScreen, Navbar, Footer } from './components';
 import Home from './pages/Home';
 import Services from './pages/Services';
 import About from './pages/About';
 import Booking from './pages/Booking';
 import Contact from './pages/Contact';
-import Footer from './components/Footer';
 import './App.css';
 
+// Modern dental website with complete functionality
 function App() {
   const [loading, setLoading] = useState(true);
 
