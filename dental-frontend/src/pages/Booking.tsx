@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
-import { FiCalendar, FiClock, FiUser, FiPhone, FiMail, FiMessageSquare, FiCheck } from 'react-icons/fi';
+// Icons replaced with emojis for TypeScript compatibility
 import './Booking.css';
 
 interface BookingForm {
@@ -67,7 +67,7 @@ const Booking: React.FC = () => {
               animate={{ scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <FiCheck size={64} />
+✅
             </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}

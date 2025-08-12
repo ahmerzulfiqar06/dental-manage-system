@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiMenu, FiX, FiPhone, FiMail } from 'react-icons/fi';
+
 import './Navbar.css';
 
 const Navbar: React.FC = () => {
@@ -38,11 +38,11 @@ const Navbar: React.FC = () => {
           <div className="top-bar-content">
             <div className="contact-info">
               <div className="contact-item">
-                <FiPhone size={16} />
+                <span>📞</span>
                 <span>+1 (555) 123-4567</span>
               </div>
               <div className="contact-item">
-                <FiMail size={16} />
+                <span>✉️</span>
                 <span>info@dentalcare.com</span>
               </div>
             </div>
@@ -129,7 +129,7 @@ const Navbar: React.FC = () => {
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
-              {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+{isOpen ? '✕' : '☰'}
             </button>
           </div>
         </div>
