@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiAward, FiUsers, FiHeart, FiShield } from 'react-icons/fi';
+// Icons replaced with emojis for TypeScript compatibility
 import './About.css';
 
 const About: React.FC = () => {
@@ -33,22 +33,22 @@ const About: React.FC = () => {
 
   const values = [
     {
-      icon: <FiHeart size={32} />,
+      icon: '❤️',
       title: 'Patient-Centered Care',
       description: 'We put our patients first, ensuring comfort and satisfaction in every treatment.',
     },
     {
-      icon: <FiShield size={32} />,
+      icon: '🛡️',
       title: 'Quality & Safety',
       description: 'We maintain the highest standards of quality and safety in all our procedures.',
     },
     {
-      icon: <FiAward size={32} />,
+      icon: '🏆',
       title: 'Excellence',
       description: 'We strive for excellence in everything we do, from treatment to patient experience.',
     },
     {
-      icon: <FiUsers size={32} />,
+      icon: '👥',
       title: 'Community',
       description: 'We are committed to serving our community and building lasting relationships.',
     },
@@ -157,7 +157,7 @@ const About: React.FC = () => {
                 whileHover={{ y: -10 }}
               >
                 <div className="value-icon">
-                  {value.icon}
+                  <span style={{ fontSize: '2rem' }}>{value.icon}</span>
                 </div>
                 <h3>{value.title}</h3>
                 <p>{value.description}</p>
@@ -228,19 +228,19 @@ const About: React.FC = () => {
             </p>
             <div className="mission-points">
               <div className="mission-point">
-                <FiHeart size={24} />
+                <span style={{ fontSize: '1.5rem' }}>❤️</span>
                 <span>Compassionate Care</span>
               </div>
               <div className="mission-point">
-                <FiAward size={24} />
+                <span style={{ fontSize: '1.5rem' }}>🏆</span>
                 <span>Excellence in Treatment</span>
               </div>
               <div className="mission-point">
-                <FiUsers size={24} />
+                <span style={{ fontSize: '1.5rem' }}>👥</span>
                 <span>Patient Education</span>
               </div>
               <div className="mission-point">
-                <FiShield size={24} />
+                <span style={{ fontSize: '1.5rem' }}>🛡️</span>
                 <span>Advanced Technology</span>
               </div>
             </div>
