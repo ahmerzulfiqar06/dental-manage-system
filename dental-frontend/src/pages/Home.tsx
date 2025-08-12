@@ -148,8 +148,8 @@ const Home: React.FC = () => {
             >
               <div className="image-container">
                 <img
-                  src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="Modern dental office"
+                  src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1600&auto=format&fit=crop"
+                  alt="Modern dental care - patient smile treatment"
                   className="hero-img"
                 />
                 <div className="image-overlay">

@@ -157,19 +157,19 @@ const Footer: React.FC = () => {
               <h3>Contact Info</h3>
               <div className="contact-info">
                 <div className="contact-item">
-                  <span className="contact-icon">📍</span>
+                  <span className="footer-contact-icon">📍</span>
                   <span>123 Dental Street, Health City, HC 12345</span>
                 </div>
                 <div className="contact-item">
-                  <span className="contact-icon">📞</span>
+                  <span className="footer-contact-icon">📞</span>
                   <span>+1 (555) 123-4567</span>
                 </div>
                 <div className="contact-item">
-                  <span className="contact-icon">✉️</span>
+                  <span className="footer-contact-icon">✉️</span>
                   <span>info@dentalcare.com</span>
                 </div>
                 <div className="contact-item">
-                  <span className="contact-icon">🕐</span>
+                  <span className="footer-contact-icon">🕐</span>
                   <span>Mon-Fri: 8AM-6PM, Sat: 9AM-3PM</span>
                 </div>
               </div>
