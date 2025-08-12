@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FiPhone, FiMail, FiMapPin, FiClock, FiFacebook, FiTwitter, FiInstagram, FiLinkedin } from 'react-icons/fi';
+import { FiPhone, FiMail, FiMapPin, FiClock } from 'react-icons/fi';
 import './Footer.css';
 
 const Footer: React.FC = () => {
@@ -74,7 +74,7 @@ const Footer: React.FC = () => {
                   whileTap={{ scale: 0.95 }}
                   aria-label="Facebook"
                 >
-                  <FiFacebook size={20} />
+                  📘
                 </motion.a>
                 <motion.a
                   href="#"
@@ -83,7 +83,7 @@ const Footer: React.FC = () => {
                   whileTap={{ scale: 0.95 }}
                   aria-label="Twitter"
                 >
-                  <FiTwitter size={20} />
+                  🐦
                 </motion.a>
                 <motion.a
                   href="#"
@@ -92,7 +92,7 @@ const Footer: React.FC = () => {
                   whileTap={{ scale: 0.95 }}
                   aria-label="Instagram"
                 >
-                  <FiInstagram size={20} />
+                  📷
                 </motion.a>
                 <motion.a
                   href="#"
@@ -101,7 +101,7 @@ const Footer: React.FC = () => {
                   whileTap={{ scale: 0.95 }}
                   aria-label="LinkedIn"
                 >
-                  <FiLinkedin size={20} />
+                  💼
                 </motion.a>
               </div>
             </motion.div>
