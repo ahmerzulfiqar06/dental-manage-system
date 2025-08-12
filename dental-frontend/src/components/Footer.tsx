@@ -81,21 +81,18 @@ const Footer: React.FC = () => {
                 Your smile is our priority.
               </p>
               <div className="social-links">
-                {socialLinks.map((social, index) => {
-                  const IconComponent = social.icon;
-                  return (
-                    <motion.a
-                      key={index}
-                      href={social.url}
-                      className="social-link"
-                      whileHover={{ scale: 1.1, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                      aria-label={social.name}
-                    >
-                      <IconComponent size={20} />
-                    </motion.a>
-                  );
-                })}
+                {socialLinks.map((social, index) => (
+                  <motion.a
+                    key={index}
+                    href={social.url}
+                    className="social-link"
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    aria-label={social.name}
+                  >
+                    {React.createElement(social.icon, { size: 20 })}
+                  </motion.a>
+                ))}
               </div>
             </motion.div>
 
