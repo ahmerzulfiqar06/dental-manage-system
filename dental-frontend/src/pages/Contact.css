@@ -1,23 +1,25 @@
 /* Contact Hero */
 .contact-hero {
-  background: var(--gradient-primary);
-  color: var(--white);
-  padding: 8rem 0 4rem;
-  margin-top: 88px;
+  background: linear-gradient(135deg, #f8fafc 0%, #eaf2ff 100%);
+  color: var(--dark-color);
+  padding: 7rem 0 3.5rem;
+  margin-top: 0;
   text-align: center;
 }
 
 .contact-hero h1 {
-  font-size: 3.5rem;
+  font-size: 3.25rem;
   font-weight: 800;
-  margin-bottom: 1.5rem;
-  color: var(--white);
+  margin-bottom: 1rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .contact-hero p {
-  font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.9);
-  max-width: 600px;
+  font-size: 1.15rem;
+  color: var(--gray-600);
+  max-width: 700px;
   margin: 0 auto;
 }
 
