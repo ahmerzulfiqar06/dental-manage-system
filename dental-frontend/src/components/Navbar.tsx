@@ -36,18 +36,18 @@ const Navbar: React.FC = () => {
       <div className="top-bar">
         <div className="container">
           <div className="top-bar-content">
-            <div className="contact-info">
-              <div className="contact-item">
+            <div className="top-left">
+              <a href="tel:+15551234567" className="top-link" aria-label="Phone">
                 <span>📞</span>
                 <span>+1 (555) 123-4567</span>
-              </div>
-              <div className="contact-item">
+              </a>
+              <a href="mailto:info@dentalcare.com" className="top-link" aria-label="Email">
                 <span>✉️</span>
                 <span>info@dentalcare.com</span>
-              </div>
+              </a>
             </div>
-            <div className="top-bar-cta">
-              <span>Emergency? Call us 24/7</span>
+            <div className="top-right">
+              <a href="tel:+15559876543" className="top-cta">Emergency? Call us 24/7</a>
             </div>
           </div>
         </div>
