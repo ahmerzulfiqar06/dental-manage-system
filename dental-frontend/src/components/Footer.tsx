@@ -187,9 +187,9 @@ const Footer: React.FC = () => {
           <div className="footer-bottom-content">
             <p>&copy; {currentYear} DentalCare. All rights reserved.</p>
             <div className="footer-bottom-links">
-              <a href="#" className="footer-bottom-link">Privacy Policy</a>
-              <a href="#" className="footer-bottom-link">Terms of Service</a>
-              <a href="#" className="footer-bottom-link">Cookie Policy</a>
+              <a href="/privacy" className="footer-bottom-link">Privacy Policy</a>
+              <a href="/terms" className="footer-bottom-link">Terms of Service</a>
+              <a href="/cookies" className="footer-bottom-link">Cookie Policy</a>
             </div>
           </div>
         </div>
