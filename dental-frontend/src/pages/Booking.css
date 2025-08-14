@@ -1,8 +1,8 @@
 /* Booking Hero */
 .booking-hero {
-  background: #e0f7fa;
-  color: var(--white);
-  padding: 6rem 0 2rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #eaf2ff 100%);
+  color: var(--dark-color);
+  padding: 8rem 0 2rem;
   text-align: center;
 }
 
@@ -10,12 +10,12 @@
   font-size: 3rem;
   font-weight: 800;
   margin-bottom: 1rem;
-  color: var(--white);
+  color: var(--dark-color);
 }
 
 .booking-header p {
   font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--gray-600);
 }
 
 /* Booking Container */
