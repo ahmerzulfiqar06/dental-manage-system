@@ -1,9 +1,8 @@
 /* Booking Hero */
 .booking-hero {
-  background: var(--gradient-primary);
+  background: #e0f7fa;
   color: var(--white);
   padding: 6rem 0 2rem;
-  margin-top: 88px;
   text-align: center;
 }
 
