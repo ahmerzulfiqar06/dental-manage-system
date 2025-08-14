@@ -3,7 +3,7 @@
   background: linear-gradient(135deg, #f8fafc 0%, #eaf2ff 100%);
   color: var(--dark-color);
   padding: 8rem 0 2rem;
-  margin-top: 88px;
+  margin-top: 87px;
   text-align: center;
   position: relative;
 }
@@ -30,6 +30,7 @@
 /* Progress Bar */
 .progress-bar {
   margin-bottom: 3rem;
+  position: relative;
 }
 
 .progress-steps {
