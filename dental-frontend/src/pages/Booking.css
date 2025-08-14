@@ -3,10 +3,9 @@
   background: linear-gradient(135deg, #f8fafc 0%, #eaf2ff 100%);
   color: var(--dark-color);
   padding: 8rem 0 2rem;
-  margin-top: calc(88px - 1px);
+  margin-top: 88px;
   text-align: center;
   position: relative;
-  z-index: 1;
 }
 
 .booking-header h1 {

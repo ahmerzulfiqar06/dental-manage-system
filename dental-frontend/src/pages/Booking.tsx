@@ -111,7 +111,6 @@ const Booking: React.FC = () => {
 
   return (
     <motion.div
-      className="booking"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
