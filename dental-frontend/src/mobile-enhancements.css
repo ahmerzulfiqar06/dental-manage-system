@@ -1,0 +1,362 @@
+/* 📱 MOBILE ENHANCEMENTS - Professional Mobile-First Design */
+
+/* ===== GLOBAL MOBILE OPTIMIZATIONS ===== */
+
+/* Prevent horizontal scroll on all devices */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* iOS Safari fixes */
+@supports (-webkit-touch-callout: none) {
+  /* Fix for iOS Safari viewport height */
+  .hero,
+  .auth-wrap {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Enhanced touch interactions */
+@media (pointer: coarse) {
+  /* Larger touch targets for better accessibility */
+  a, button, input, select, textarea {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Remove hover effects on touch devices */
+  .service-card:hover,
+  .testimonial-card:hover {
+    transform: none;
+    border-color: var(--gray-200);
+  }
+  
+  /* Enhanced active states for touch */
+  .btn:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+  
+  .nav-link:active,
+  .mobile-nav-link:active {
+    background: var(--gray-200);
+  }
+}
+
+/* ===== IMPROVED MOBILE NAVIGATION ===== */
+
+/* Better mobile hamburger menu */
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-menu-btn:active {
+    background: var(--gray-200);
+    transform: scale(0.95);
+  }
+  
+  /* Smooth mobile menu animation */
+  .mobile-menu {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  
+  /* Better mobile menu spacing */
+  .mobile-nav-link {
+    border-radius: 12px;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  
+  .mobile-nav-link:active {
+    transform: scale(0.98);
+  }
+}
+
+/* ===== MOBILE FORM ENHANCEMENTS ===== */
+
+/* Better mobile form inputs */
+@media (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"],
+  input[type="date"],
+  input[type="time"],
+  select,
+  textarea {
+    font-size: 16px !important; /* Prevents iOS zoom */
+    padding: 12px 16px;
+    border-radius: 12px;
+    border-width: 2px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Enhanced focus states */
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+    transform: scale(1.02);
+  }
+  
+  /* Better select dropdown styling */
+  select {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 40px;
+  }
+}
+
+/* ===== MOBILE TYPOGRAPHY IMPROVEMENTS ===== */
+
+@media (max-width: 768px) {
+  /* Better mobile readability */
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  /* Optimized heading sizes */
+  h1 {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  
+  h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+  
+  h3 {
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Better paragraph spacing */
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+}
+
+/* ===== MOBILE BUTTON IMPROVEMENTS ===== */
+
+@media (max-width: 768px) {
+  .btn {
+    padding: 14px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 0.025em;
+    transition: all 0.2s ease;
+  }
+  
+  /* Full-width mobile buttons */
+  .btn-mobile-full {
+    width: 100%;
+    margin: 8px 0;
+  }
+  
+  /* Enhanced button states */
+  .btn:active {
+    transform: scale(0.98);
+  }
+  
+  .btn-primary:active {
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+  }
+}
+
+/* ===== MOBILE CARD IMPROVEMENTS ===== */
+
+@media (max-width: 768px) {
+  .card {
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--gray-100);
+  }
+  
+  .service-card,
+  .testimonial-card {
+    padding: 24px 20px;
+    border-radius: 16px;
+    transition: none; /* Remove hover animations */
+  }
+}
+
+/* ===== MOBILE SPACING IMPROVEMENTS ===== */
+
+@media (max-width: 768px) {
+  /* Better mobile section spacing */
+  .section {
+    padding: 48px 0;
+  }
+  
+  .container {
+    padding: 0 20px;
+  }
+  
+  /* Improved mobile margins */
+  .hero-buttons {
+    gap: 12px;
+    margin: 24px 0;
+  }
+  
+  .form-actions {
+    gap: 12px;
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 32px 0;
+  }
+  
+  .container {
+    padding: 0 16px;
+  }
+}
+
+/* ===== MOBILE PERFORMANCE OPTIMIZATIONS ===== */
+
+/* Reduce animations for better performance */
+@media (max-width: 768px) {
+  * {
+    animation-duration: 0.3s !important;
+    transition-duration: 0.3s !important;
+  }
+  
+  /* Disable heavy animations on mobile */
+  .floating-card,
+  .shape,
+  .hero-background {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* ===== ACCESSIBILITY IMPROVEMENTS ===== */
+
+/* Better focus indicators */
+@media (max-width: 768px) {
+  *:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+  }
+  
+  /* Enhanced tap targets */
+  a, button, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Better error message visibility */
+  .error-message,
+  .auth-error {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 8px;
+  }
+}
+
+/* ===== LANDSCAPE MOBILE OPTIMIZATIONS ===== */
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    min-height: 100vh;
+    padding: 16px 0;
+  }
+  
+  .hero-text h1 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+    margin-bottom: 16px;
+  }
+  
+  .auth-wrap {
+    padding: 16px 20px;
+  }
+  
+  .section {
+    padding: 32px 0;
+  }
+}
+
+/* ===== DARK MODE SUPPORT (if needed) ===== */
+
+@media (prefers-color-scheme: dark) and (max-width: 768px) {
+  /* Mobile dark mode optimizations */
+  .mobile-menu {
+    background: rgba(15, 23, 42, 0.95);
+    color: white;
+  }
+  
+  .mobile-nav-link {
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .mobile-nav-link:hover,
+  .mobile-nav-link.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+}
+
+/* ===== PRINT STYLES FOR MOBILE ===== */
+
+@media print {
+  .mobile-menu,
+  .mobile-menu-btn,
+  .top-bar,
+  .navbar,
+  .floating-card,
+  .hero-background {
+    display: none !important;
+  }
+}
+
+/* ===== REDUCED MOTION SUPPORT ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -14,6 +14,7 @@ import Dashboard from './pages/dashboard';
 import { AuthProvider } from './context/AuthContext';
 import { RequireAuth } from './components/RouteGuard';
 import './App.css';
+import './mobile-enhancements.css';
 
 // Modern dental website with complete functionality
 function App() {
