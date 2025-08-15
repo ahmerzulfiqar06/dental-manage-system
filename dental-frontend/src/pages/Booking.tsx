@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
+import { appointmentsApi, handleApiError } from '../services/api';
 // Icons replaced with emojis for TypeScript compatibility
 import './Booking.css';
 
@@ -18,7 +19,7 @@ interface BookingForm {
 const Booking: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const { register, handleSubmit, formState: { errors }, watch } = useForm<BookingForm>();
+  const { register, handleSubmit, formState: { errors }, watch, trigger } = useForm<BookingForm>();
 
   const services = [
     'General Checkup',
@@ -38,12 +39,34 @@ const Booking: React.FC = () => {
     '03:00 PM', '03:30 PM', '04:00 PM', '04:30 PM',
   ];
 
-  const onSubmit = (data: BookingForm) => {
-    console.log('Booking data:', data);
-    setIsSubmitted(true);
+  const onSubmit = async (data: BookingForm) => {
+    try {
+      await appointmentsApi.createAppointment({
+        service: data.service,
+        appointmentDate: data.date,
+        appointmentTime: data.time,
+        notes: data.message,
+      });
+      
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error('Failed to create appointment:', error);
+      // You can add error handling UI here
+      alert(`Failed to create appointment: ${handleApiError(error)}`);
+    }
   };
 
-  const nextStep = () => {
+  const nextStep = async () => {
+    if (currentStep === 1) {
+      // Validate step 1 fields
+      const isValid = await trigger(['service', 'date', 'time']);
+      if (!isValid) return;
+    }
+    if (currentStep === 2) {
+      // Validate step 2 fields
+      const isValid = await trigger(['firstName', 'lastName', 'email', 'phone']);
+      if (!isValid) return;
+    }
     if (currentStep < 3) setCurrentStep(currentStep + 1);
   };
 

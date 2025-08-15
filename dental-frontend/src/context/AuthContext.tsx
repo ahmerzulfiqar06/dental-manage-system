@@ -1,9 +1,10 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { AppUser, UserRole } from '../types';
-import { getUser, saveUser, getUsers, registerUser } from '../services/storage';
+import { authApi, getCurrentUser, handleApiError } from '../services/api';
 
 interface AuthContextValue {
   user: AppUser | null;
+  loading: boolean;
   login: (email: string, password: string) => Promise<boolean>;
   logout: () => void;
   register: (name: string, email: string, password: string, role: UserRole) => Promise<boolean>;
@@ -11,47 +12,66 @@ interface AuthContextValue {
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined);
 
-// For demo: store passwords in memory map (NOT production). Replace with backend later.
-const PASSWORDS_KEY = 'dc_passwords';
-const getPasswords = (): Record<string, string> => JSON.parse(localStorage.getItem(PASSWORDS_KEY) || '{}');
-const setPasswords = (m: Record<string, string>) => localStorage.setItem(PASSWORDS_KEY, JSON.stringify(m));
-
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<AppUser | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setUser(getUser());
+    // Initialize user from localStorage and validate with backend
+    const initializeAuth = async () => {
+      try {
+        const storedUser = getCurrentUser();
+        if (storedUser) {
+          // Validate token with backend
+          const profile = await authApi.getProfile();
+          setUser(profile);
+        }
+      } catch (error) {
+        console.error('Auth initialization error:', error);
+        // Token invalid, clear stored data
+        authApi.logout();
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    initializeAuth();
   }, []);
 
-  const login = async (email: string, password: string) => {
-    const map = getPasswords();
-    const ok = map[email] && map[email] === password;
-    if (!ok) return false;
-    const found = getUsers().find((u) => u.email === email) || null;
-    setUser(found);
-    saveUser(found || null);
-    return !!found;
+  const login = async (email: string, password: string): Promise<boolean> => {
+    try {
+      setLoading(true);
+      const authResponse = await authApi.login(email, password);
+      setUser(authResponse.user);
+      return true;
+    } catch (error) {
+      console.error('Login error:', handleApiError(error));
+      return false;
+    } finally {
+      setLoading(false);
+    }
   };
 
   const logout = () => {
+    authApi.logout();
     setUser(null);
-    saveUser(null);
   };
 
-  const register = async (name: string, email: string, password: string, role: UserRole) => {
-    const users = getUsers();
-    if (users.some((u) => u.email === email)) return false;
-    const newUser: AppUser = { id: crypto.randomUUID(), name, email, role };
-    registerUser(newUser);
-    const map = getPasswords();
-    map[email] = password;
-    setPasswords(map);
-    setUser(newUser);
-    saveUser(newUser);
-    return true;
+  const register = async (name: string, email: string, password: string, role: UserRole): Promise<boolean> => {
+    try {
+      setLoading(true);
+      const authResponse = await authApi.register({ name, email, password, role });
+      setUser(authResponse.user);
+      return true;
+    } catch (error) {
+      console.error('Registration error:', handleApiError(error));
+      return false;
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const value = useMemo(() => ({ user, login, logout, register }), [user]);
+  const value = useMemo(() => ({ user, loading, login, logout, register }), [user, loading]);
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 

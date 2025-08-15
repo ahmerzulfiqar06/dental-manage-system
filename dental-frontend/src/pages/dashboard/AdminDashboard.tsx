@@ -1,14 +1,57 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { getAppointments, updateAppointment } from '../../services/storage';
+import { appointmentsApi, handleApiError } from '../../services/api';
+import { Appointment } from '../../types';
 
 const AdminDashboard: React.FC = () => {
-  const [appointments, setAppointments] = useState(getAppointments());
+  const [appointments, setAppointments] = useState<Appointment[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const setStatus = (id: string, status: 'pending' | 'confirmed' | 'cancelled') => {
-    updateAppointment(id, { status });
-    setAppointments(getAppointments());
+  useEffect(() => {
+    fetchAppointments();
+  }, []);
+
+  const fetchAppointments = async () => {
+    try {
+      setLoading(true);
+      const data = await appointmentsApi.getAppointments();
+      setAppointments(data);
+      setError(null);
+    } catch (err) {
+      setError(handleApiError(err));
+    } finally {
+      setLoading(false);
+    }
   };
+
+  const setStatus = async (id: string, status: 'pending' | 'confirmed' | 'cancelled') => {
+    try {
+      await appointmentsApi.updateAppointment(id, { status });
+      await fetchAppointments(); // Refresh the list
+    } catch (err) {
+      alert(`Failed to update appointment: ${handleApiError(err)}`);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="container section">
+        <motion.h2 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>Admin Dashboard</motion.h2>
+        <p>Loading appointments...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="container section">
+        <motion.h2 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>Admin Dashboard</motion.h2>
+        <p style={{ color: 'red' }}>Error: {error}</p>
+        <button className="btn btn-primary" onClick={fetchAppointments}>Retry</button>
+      </div>
+    );
+  }
 
   return (
     <div className="container section">
@@ -24,12 +67,12 @@ const AdminDashboard: React.FC = () => {
           <tbody>
             {appointments.map((a) => (
               <tr key={a.id}>
-                <td>{a.firstName} {a.lastName}</td>
-                <td>{a.email}</td>
-                <td>{a.date}</td>
-                <td>{a.time}</td>
+                <td>{a.patient?.name || 'Unknown'}</td>
+                <td>{a.patient?.email || 'Unknown'}</td>
+                <td>{new Date(a.appointmentDate).toLocaleDateString()}</td>
+                <td>{a.appointmentTime}</td>
                 <td>{a.service}</td>
-                <td>{a.status}</td>
+                <td style={{ textTransform: 'capitalize' }}>{a.status}</td>
                 <td style={{ display: 'flex', gap: '.5rem' }}>
                   <button className="btn btn-primary" onClick={() => setStatus(a.id, 'confirmed')}>Confirm</button>
                   <button className="btn btn-secondary" onClick={() => setStatus(a.id, 'pending')}>Pending</button>

@@ -1,25 +1,33 @@
-export type UserRole = 'admin' | 'patient';
+export type UserRole = 'admin' | 'patient' | 'doctor';
 
 export interface AppUser {
   id: string;
   name: string;
   email: string;
   role: UserRole;
+  phone?: string;
+  dateOfBirth?: string;
+  address?: string;
+  isActive?: boolean;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export interface Appointment {
   id: string;
-  userId?: string; // undefined for guest booking
+  patientId: string;
+  patient?: AppUser; // Populated by backend
   service: string;
-  date: string; // ISO date
-  time: string; // e.g., '09:00 AM'
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  message?: string;
-  status: 'pending' | 'confirmed' | 'cancelled';
+  appointmentDate: string; // ISO date
+  appointmentTime: string; // e.g., '09:00'
+  status: 'pending' | 'confirmed' | 'cancelled' | 'completed';
+  notes?: string;
+  symptoms?: string;
+  doctorAssigned?: string;
+  estimatedCost?: number;
+  durationMinutes?: number;
   createdAt: string;
+  updatedAt: string;
 }
 
 
