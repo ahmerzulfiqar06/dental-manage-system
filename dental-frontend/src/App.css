@@ -5,6 +5,8 @@
   box-sizing: border-box;
 }
 
+
+
 html {
   scroll-behavior: smooth;
 }
@@ -25,8 +27,8 @@ body {
 
 /* Color Variables */
 :root {
-  --primary-color: #2563eb;
-  --secondary-color: #06b6d4;
+  --primary-color: #9525eb;
+  --secondary-color: #3dd406;
   --accent-color: #10b981;
   --dark-color: #1f2937;
   --light-color: #f8fafc;
